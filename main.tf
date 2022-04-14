@@ -1,6 +1,9 @@
 /**
  * # ![AWS](aws-logo.png) CloudFormation Stack
  *
+ * [![CI](https://github.com/figurate/terraform-aws-cloudformation-stack/actions/workflows/main.yml/badge.svg)](https://github.com/figurate/terraform-aws-cloudformation-stack/actions/workflows/main.yml)
+ *
+ *
  * Purpose: Deploy a CloudFormation stack (and store template revisions)
  */
 data "aws_s3_bucket" "template_bucket" {
@@ -19,6 +22,7 @@ resource "aws_cloudformation_stack" "stack" {
   template_url      = "https://${data.aws_s3_bucket.template_bucket.bucket_domain_name}/${aws_s3_bucket_object.template.key}"
   capabilities      = var.capabilities
   iam_role_arn      = var.iam_role_arn
+  #checkov:skip=CKV_AWS_124:Notification ARNs provided as input
   notification_arns = var.notification_arns
   depends_on        = [aws_s3_bucket_object.template]
 }

@@ -1,5 +1,7 @@
 # ![AWS](aws-logo.png) CloudFormation Stack
 
+[![CI](https://github.com/figurate/terraform-aws-cloudformation-stack/actions/workflows/main.yml/badge.svg)](https://github.com/figurate/terraform-aws-cloudformation-stack/actions/workflows/main.yml)
+
 Purpose: Deploy a CloudFormation stack (and store template revisions)
 
 ## Requirements
